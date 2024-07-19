@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fastapi-jinja2-study"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Kazumi Takahashi <ktakahashi@umn.co.jp>"]
 license = "MIT"
@@ -10,7 +10,6 @@ readme = "README.md"
 python = "^3.12"
 fastapi = "^0.111.1"
 Jinja2 = "^3.1.4"
-
 
 [tool.poetry.group.dev.dependencies]
 pylint = "^3.2.5"
@@ -23,3 +22,27 @@ mypy = "^1.10.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+include = '\.pyi?$'
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''

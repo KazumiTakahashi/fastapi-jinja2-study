@@ -1,0 +1,22 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        language_version: python3
+        args: [--check]
+  - repo: local
+    hooks:
+      - id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        require_serial: true
+        args:
+          [
+            "-rn", # Only display messages
+            "-sn", # Don't display the score
+          ]
